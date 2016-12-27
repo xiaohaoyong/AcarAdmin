@@ -19,9 +19,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'userid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'driverid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Driver::find()->select(['driver'])->indexBy('userid')->column(), ['prompt'=>'分配司机请选择']) ?>
-
-    <?= $form->field($model, 'addtime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
-
+    <div class="col-lg-6 field-order-orderid required has-success">
+        <label class="col-lg-3 control-label" for="order-orderid">创建时间</label>
+        <?=$model->addtime?>
+        <div class="help-block"></div>
+    </div>
     <?= $form->field($model, 'routeid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Route::find()->select(['CONCAT(saddr,eaddr)'])->indexBy('id')->column(), ['prompt'=>'请选择']) ?>
 
     <?= $form->field($model, 'status',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Order::$statustext, ['prompt'=>'请选择']) ?>

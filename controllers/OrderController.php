@@ -84,11 +84,17 @@ class OrderController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $p=Yii::$app->request->post();
+        if($p) {
+
+            $p['Order']['bespeaktime'] = strtotime($p['Order']['bespeaktime']);
+        }
+
+        if ($model->load($p) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             $model->bespeaktime=date('Y-m-d H:i:s',$model->bespeaktime);
-            $model->addtime=date('Y-m-d H:i:s');
+            $model->addtime=date('Y-m-d H:i:s',$model->addtime);
 
             return $this->render('update', [
                 'model' => $model,

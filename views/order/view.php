@@ -46,14 +46,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'addtime',
-                'format' => ['date', 'php:Y-m-d']
+                'format' => ['date', 'php:Y-m-d H:i:s']
             ],
             [                      // the owner name of the model
                 'attribute' => 'bespeaktime',
                 'value' => function($data)
                 {
                     if($data->bespeaktime){
-                        return date('m月d日 H:i',$data->bespeaktime);
+                        return date('Y-m-d H:i:s',$data->bespeaktime);
                     }else{
                         return "尽快出发";
                     }

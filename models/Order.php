@@ -61,10 +61,9 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['orderid', 'saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'elat', 'elng', 'bespeaktime', 'payid'], 'required'],
+            [['orderid', 'saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'elat', 'elng', 'bespeaktime'], 'required'],
             [['userid', 'driverid', 'routeid', 'status', 'type', 'num', 'phone', 'paytype', 'paystatus', 'trmb', 'prmb', 'paytime'], 'integer'],
             [['orderid'], 'string', 'max' => 20],
-            [['bespeaktime','addtime'],'datetime','Y-m-d H:i:s'],
             [['saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'eaddrname', 'elat', 'elng', 'payid'], 'string', 'max' => 50],
         ];
     }
