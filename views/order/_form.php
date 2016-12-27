@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'phone',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'bespeaktime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dateInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bespeaktime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'paytype',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Order::$paytypetext, ['prompt'=>'请选择']) ?>
 

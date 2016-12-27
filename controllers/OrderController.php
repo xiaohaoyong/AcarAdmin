@@ -87,6 +87,9 @@ class OrderController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $model->bespeaktime=date('Y-m-d H:i:s',$model->bespeaktime);
+            $model->addtime=date('Y-m-d H:i:s');
+
             return $this->render('update', [
                 'model' => $model,
             ]);
