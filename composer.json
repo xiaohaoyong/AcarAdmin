@@ -1,0 +1,10 @@
+{
+    "require": {
+        "nex/yii2-datepicker": "*",
+        "yiisoft/yii2-jui": "^2.0",
+        "2amigos/yii2-date-picker-widget": "*",
+        "2amigos/yii2-date-time-picker-widget": "~1.0",
+        "pjkui/kindeditor": "*"
+    },
+	 "minimum-stability": "dev"
+}

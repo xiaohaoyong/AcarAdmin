@@ -1,0 +1,5 @@
+﻿ACARSRV_DB1_HOST                = "123.56.139.138"
+ACARSRV_DB1_PORT                = "3306"
+ACARSRV_DB1_NAME                = "acar"
+ACARSRV_DB1_USER                = "acar_m"
+ACARSRV_DB1_PASS                = "74b4913afad67c7f"
