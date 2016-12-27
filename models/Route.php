@@ -46,7 +46,7 @@ class Route extends \yii\db\ActiveRecord
     {
         return [
             [['price', 'bprice5', 'bprice7', 'bprice9'], 'integer'],
-            [['saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'eaddrname', 'elng', 'elat'], 'required'],
+            [['price', 'bprice5', 'bprice7', 'bprice9','saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'eaddrname', 'elng', 'elat'], 'required'],
             [['saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'eaddrname', 'elng', 'elat'], 'string', 'max' => 50],
         ];
     }

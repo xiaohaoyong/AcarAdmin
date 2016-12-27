@@ -214,6 +214,11 @@ class DetailView extends Widget
                 if (!array_key_exists('value', $attribute)) {
                     $attribute['value'] = ArrayHelper::getValue($this->model, $attributeName);
                 }
+                //var_dump(is_callable($attribute['value']));;
+                if(is_callable($attribute['value'])){
+                    $attribute['value']=call_user_func($attribute['value'],$this->model);
+                }
+               //var_dump($attribute);
             } elseif (!isset($attribute['label']) || !array_key_exists('value', $attribute)) {
                 throw new InvalidConfigException('The attribute configuration requires the "attribute" element to determine the value and display label.');
             }

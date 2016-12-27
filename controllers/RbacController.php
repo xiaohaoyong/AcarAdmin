@@ -122,6 +122,7 @@ class RbacController extends BaseController {
         $model->load(\Yii::$app->request->post(), 'AuthMenu');
         $model->validate();
         if ($model->getErrors()) {
+            var_dump($model->errors);exit;
             $error = array_values($model->FirstErrors)[0];
             return $this->render('/site/error', ['name' => 'Error', 'message' => $error]);
         }

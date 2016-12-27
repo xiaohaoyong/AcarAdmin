@@ -389,6 +389,16 @@ class ActiveField extends Component
         return $this;
     }
 
+
+    public function dateInput($options = [])
+    {
+        $options = array_merge($this->inputOptions, $options);
+        $this->adjustLabelFor($options);
+        $this->parts['{input}'] = \app\commands\helper\Html::activeDateInput($this->model, $this->attribute, $options);
+
+        return $this;
+    }
+
     /**
      * Renders a password input.
      * This method will generate the "name" and "value" tag attributes automatically for the model attribute
