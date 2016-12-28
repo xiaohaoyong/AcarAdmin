@@ -20,12 +20,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'userid',
+            'userid',
             'driver',
-            'city',
+            [
+                'attribute' => 'addtime',
+                'value' => function($data)
+                {
+                    $route=\app\models\City::findOne($data->city);
+                    return $route->city;
+                }
+            ],
             'plates',
             'owner',
-            'cartime:datetime',
+            [
+                'attribute' => 'addtime',
+                'format' => ['date', 'php:Y-m-d']
+            ],
 
             // 'starttime',
             // 'addtime',

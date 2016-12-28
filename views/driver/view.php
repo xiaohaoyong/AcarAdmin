@@ -14,8 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->userid], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->userid], [
+        <?= Html::a('修改', ['update', 'id' => $model->userid], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('删除', ['delete', 'id' => $model->userid], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,14 +28,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'userid',
-            'city',
+            'driver',
+            [
+                'attribute' => 'addtime',
+                'value' => function($data)
+                {
+                    $route=\app\models\City::findOne($data->city);
+                    return $route->city;
+                }
+            ],
             'plates',
             'owner',
-            'cartime:datetime',
-            'driver',
-            'starttime',
-            'addtime',
-            'licenseimg',
+            [
+                'attribute' => 'addtime',
+                'format' => ['date', 'php:Y-m-d']
+            ],
+            [
+                'attribute' => 'starttime',
+                'format' => ['date', 'php:Y-m-d']
+            ],
+             'licenseimg',
         ],
     ]) ?>
 

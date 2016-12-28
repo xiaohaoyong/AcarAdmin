@@ -20,13 +20,27 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'name',
             'phone',
             //'openid',
-            'type',
-            'addtime',
-             'level',
+            [                      // the owner name of the model
+                'attribute' => 'type',
+                'value' => function($data)
+                {
+                    return \app\models\Users::$typetext[$data->type];
+                }
+            ],
+            [                      // the owner name of the model
+                'attribute' => 'level',
+                'value' => function($data)
+                {
+                    return \app\models\Users::$leveltext[$data->level];
+                }
+            ],
+            [
+                'attribute' => 'addtime',
+                'format' => ['date', 'php:Y-m-d H:i:s']
+            ],
             // 'sex',
             // 'idnum',
             // 'idimg',

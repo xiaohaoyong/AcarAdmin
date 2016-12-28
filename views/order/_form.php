@@ -14,13 +14,23 @@ use yii\widgets\ActiveForm;
         'options' => ['class' => 'form-inline'],
     ]); ?>
 
-    <?= $form->field($model, 'orderid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'userid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
+    <div class="col-lg-6 field-order-orderid required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-orderid">订单ID</label>
+        <?=$model->orderid?>
+        <div class="help-block"></div>
+    </div>
+    <div class="col-lg-6 field-order-userid required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-userid">下单用户</label>
+        <?php
+            $user=\app\models\Users::findOne($model->userid);
+            echo $user->name;
+        ?>
+        <div class="help-block"></div>
+    </div>
 
     <?= $form->field($model, 'driverid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Driver::find()->select(['driver'])->indexBy('userid')->column(), ['prompt'=>'分配司机请选择']) ?>
-    <div class="col-lg-6 field-order-orderid required has-success">
-        <label class="col-lg-3 control-label" for="order-orderid">创建时间</label>
+    <div class="col-lg-6 field-order-addtime required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-addtime">创建时间</label>
         <?=$model->addtime?>
         <div class="help-block"></div>
     </div>
@@ -37,7 +47,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'slat',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'slng',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
-
+    <div class="col-lg-6 field-order-orderid required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-addtime"></label>
+        <div class="help-block"></div>
+    </div>
     <?= $form->field($model, 'eaddr',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'eaddrname',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
@@ -62,8 +75,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'paytime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput() ?>
 
-    <?= $form->field($model, 'payid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
-
+    <div class="col-lg-6 field-order-payid required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-payid">支付ID</label>
+        <?=$model->payid?>
+        <div class="help-block"></div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '添加' : '提交', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

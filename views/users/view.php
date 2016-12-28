@@ -26,13 +26,35 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+            'name',
+
             'phone',
             'openid',
-            'type',
-            'addtime',
-            'level',
-            'sex',
-            'name',
+            [                      // the owner name of the model
+                'attribute' => 'type',
+                'value' => function($data)
+                {
+                    return \app\models\Users::$typetext[$data->type];
+                }
+            ],
+            [
+                'attribute' => 'addtime',
+                'format' => ['date', 'php:Y-m-d H:i:s']
+            ],
+            [                      // the owner name of the model
+                'attribute' => 'level',
+                'value' => function($data)
+                {
+                    return \app\models\Users::$leveltext[$data->level];
+                }
+            ],
+            [                      // the owner name of the model
+                'attribute' => 'level',
+                'value' => function($data)
+                {
+                    return \app\models\Users::$sextext[$data->level];
+                }
+            ],
             'idnum',
             'idimg',
             'authKey',

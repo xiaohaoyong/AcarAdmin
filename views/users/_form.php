@@ -11,28 +11,43 @@ use yii\widgets\ActiveForm;
 <div class="users-form">
 
     <?php $form = ActiveForm::begin(); ?>
+    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'openid')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'type')->radioList([0=>'乘客','1'=>'司机']) ?>
-
-    <?= $form->field($model, 'addtime')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'level')->radioList(['-1'=>'不通过',0=>'未审核','1'=>'通过']) ?>
 
     <?= $form->field($model, 'sex')->radioList(['1'=>'男','0'=>'女']) ?>
 
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'idnum')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'idimg')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'authKey')->textInput(['maxlength' => true]) ?>
+    <div class="field-order-addtime required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-addtime">创建时间</label>
+        <?=date('Y-m-d H:i:s',$model->addtime)?>
+        <div class="help-block"></div>
+    </div>
 
-    <?= $form->field($model, 'accessToken')->textInput(['maxlength' => true]) ?>
+    <div class="field-order-openid required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-openid">微信Openid</label>
+        <?=$model->openid?>
+        <div class="help-block"></div>
+    </div>
+
+    <div class="field-order-authKey required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-authKey">authKey</label>
+        <?=$model->authKey?>
+        <div class="help-block"></div>
+    </div>
+
+    <div class="field-order-accessToken required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-accessToken">Access Token</label>
+        <?=$model->accessToken?>
+        <div class="help-block"></div>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
