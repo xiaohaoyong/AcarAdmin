@@ -202,9 +202,6 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END CONTAINER -->
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
-            <div class="page-footer-inner">
-                2016 &copy; GYHADMIN  BY XYWY.
-            </div>
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
