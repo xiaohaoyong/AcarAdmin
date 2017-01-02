@@ -93,8 +93,9 @@ class OrderController extends Controller
         if ($model->load($p) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            $model->bespeaktime=date('Y-m-d H:i:s',$model->bespeaktime);
+            $model->bespeaktime=$model->bespeaktime?date('Y-m-d H:i:s',$model->bespeaktime):"尽快出发";
             $model->addtime=date('Y-m-d H:i:s',$model->addtime);
+            $model->paytime=date('Y-m-d H:i:s',$model->paytime);
 
             return $this->render('update', [
                 'model' => $model,

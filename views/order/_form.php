@@ -63,8 +63,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'phone',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'bespeaktime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput(['maxlength' => true]) ?>
-
+    <div class="col-lg-6 field-order-bespeaktime required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-bespeaktime">预约时间</label>
+        <?=$model->bespeaktime?>
+        <div class="help-block"></div>
+    </div>
     <?= $form->field($model, 'paytype',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Order::$paytypetext, ['prompt'=>'请选择']) ?>
 
     <?= $form->field($model, 'paystatus',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Order::$paystatustext, ['prompt'=>'请选择']) ?>
@@ -74,7 +77,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'prmb',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput() ?>
 
     <?= $form->field($model, 'paytime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput() ?>
-
+    <div class="col-lg-6 field-order-paytime required" style="height: 44px">
+        <label class="col-lg-3 control-label" for="order-paytime">支付时间</label>
+        <?=$model->paytime?>
+        <div class="help-block"></div>
+    </div>
     <div class="col-lg-6 field-order-payid required" style="height: 44px">
         <label class="col-lg-3 control-label" for="order-payid">支付ID</label>
         <?=$model->payid?>
