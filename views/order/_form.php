@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
         <div class="help-block"></div>
     </div>
 
-    <?= $form->field($model, 'driverid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Driver::find()->select(['driver'])->indexBy('userid')->column(), ['prompt'=>'分配司机请选择']) ?>
+    <?= $form->field($model, 'driverid',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->dropDownList(\app\models\Users::find()->where(['type'=>1])->select(['name'])->indexBy('id')->column(), ['prompt'=>'分配司机请选择']) ?>
     <div class="col-lg-6 field-order-addtime required" style="height: 44px">
         <label class="col-lg-3 control-label" for="order-addtime">创建时间</label>
         <?=$model->addtime?>
@@ -76,7 +76,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'prmb',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput() ?>
 
-    <?= $form->field($model, 'paytime',['options' => ['class' => 'col-lg-6'],'labelOptions' => ['class' => 'col-lg-3 control-label']])->textInput() ?>
     <div class="col-lg-6 field-order-paytime required" style="height: 44px">
         <label class="col-lg-3 control-label" for="order-paytime">支付时间</label>
         <?=$model->paytime?>
