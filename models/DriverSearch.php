@@ -19,7 +19,7 @@ class DriverSearch extends Driver
     {
         return [
             [['userid', 'city', 'cartime', 'starttime', 'addtime'], 'integer'],
-            [['plates', 'owner', 'driver', 'licenseimg'], 'safe'],
+            [['plates', 'owner', 'licenseimg'], 'safe'],
         ];
     }
 
@@ -68,7 +68,6 @@ class DriverSearch extends Driver
 
         $query->andFilterWhere(['like', 'plates', $this->plates])
             ->andFilterWhere(['like', 'owner', $this->owner])
-            ->andFilterWhere(['like', 'driver', $this->driver])
             ->andFilterWhere(['like', 'licenseimg', $this->licenseimg]);
 
         return $dataProvider;

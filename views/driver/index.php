@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-index">
 
-    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  //echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -20,8 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'userid',
-            'driver',
+            [
+                'attribute' => 'userid',
+                'value' => function($data)
+                {
+                    $Users=\app\models\Users::findOne($data->userid);
+                    return $Users->name;
+                }
+            ],
             [
                 'attribute' => 'addtime',
                 'value' => function($data)
@@ -41,7 +47,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'addtime',
             // 'licenseimg',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view} {update} {delete} {routes}',
+                'buttons'=>[
+                    'routes' => function ($url, $model, $key) {
+                     return Html::a('司机路线管理', ['driver-route/index','userid'=>$model->userid]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 </div>

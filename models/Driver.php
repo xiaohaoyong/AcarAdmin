@@ -41,10 +41,10 @@ class Driver extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userid', 'plates', 'owner', 'driver'], 'required'],
+            [['userid', 'plates', 'owner'], 'required'],
             [['userid', 'city', 'cartime', 'starttime', 'addtime'], 'integer'],
             [['plates', 'licenseimg'], 'string', 'max' => 20],
-            [['owner', 'driver'], 'string', 'max' => 5],
+            [['owner'], 'string', 'max' => 5],
         ];
     }
 
@@ -54,12 +54,11 @@ class Driver extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'userid' => '用户ID',
+            'userid' => '司机',
             'city' => '所在城市',
             'plates' => '车牌号',
             'owner' => '车主姓名',
             'cartime' => '车辆注册日期',
-            'driver' => '司机姓名',
             'starttime' => '初次领取驾照日期',
             'addtime' => '注册时间',
             'licenseimg' => '驾驶证照片',

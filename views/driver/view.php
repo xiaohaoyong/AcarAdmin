@@ -28,7 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'userid',
-            'driver',
+            [
+                'attribute' => 'driver',
+                'value' => function($data)
+                {
+                    $Users=\app\models\Users::findOne($data->userid);
+                    return $Users->name;
+                }
+            ],
             [
                 'attribute' => 'addtime',
                 'value' => function($data)

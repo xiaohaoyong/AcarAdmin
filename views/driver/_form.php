@@ -12,9 +12,16 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'driver')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'userid')->textInput(['maxlength' => true]) ?>
+    <div class="field-order-cartime required" style="height: 44px">
+        <label class="control-label" for="order-cartime">司机姓名:</label>
+        <?php
+        $users=\app\models\Users::findOne($model->userid);
+        echo $users->name;
+        ?>
+        <div class="help-block"></div>
+    </div>
+
 
     <?= $form->field($model, 'city')->dropDownList(\app\models\City::find()->select(['city'])->indexBy('id')->column(), ['prompt'=>'请选择']) ?>
 
