@@ -22,7 +22,7 @@ use Yii;
  */
 class Users extends \yii\db\ActiveRecord
 {
-    public static $typetext=[0=>'乘客',2=>'司机'];
+    public static $typetext=[0=>'乘客',1=>'司机'];
     public static $leveltext=[-1=>'不通过',0=>'未审核',1=>'通过'];
     public static $sextext=[1=>'男',0=>'女'];
 
