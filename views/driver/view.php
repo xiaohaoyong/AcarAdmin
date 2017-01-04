@@ -27,9 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'userid',
             [
-                'attribute' => 'driver',
+                'attribute' => 'userid',
                 'value' => function($data)
                 {
                     $Users=\app\models\Users::findOne($data->userid);
