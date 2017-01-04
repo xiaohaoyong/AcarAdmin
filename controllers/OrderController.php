@@ -96,6 +96,7 @@ class OrderController extends Controller
             $model->bespeaktime=$model->bespeaktime?date('Y-m-d h:i:s',$model->bespeaktime):"尽快出发";
             $model->addtime=date('Y-m-d h:i:s',$model->addtime);
             $model->paytime=date('Y-m-d h:i:s',$model->paytime);
+            $model->trmb=$model->trmb/100;
 
             return $this->render('update', [
                 'model' => $model,

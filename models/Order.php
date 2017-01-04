@@ -101,5 +101,12 @@ class Order extends \yii\db\ActiveRecord
             'payid' => '支付id',
         ];
     }
+    public function beforeSave($insert)
+    {
+        $this->trmb=$this->trmb*100;
+
+
+        return parent::beforeSave($insert);
+    }
 
 }
