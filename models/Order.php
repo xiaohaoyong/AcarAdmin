@@ -95,7 +95,7 @@ class Order extends \yii\db\ActiveRecord
             'bespeaktime' => '预约时间',
             'paytype' => '支付类型',
             'paystatus' => '支付状态',
-            'trmb' => '订单价格',
+            'trmb' => '订单价格（元）',
             'prmb' => '支付金额',
             'paytime' => '支付时间',
             'payid' => '支付id',
