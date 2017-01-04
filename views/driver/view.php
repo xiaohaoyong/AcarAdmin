@@ -6,7 +6,9 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Driver */
 
-$this->title = $model->driver;
+$userid=\Yii::$app->request->get('id',0);
+$Users=\app\models\Users::findOne($userid);
+$this->title = $Users->name;
 $this->params['breadcrumbs'][] = ['label' => 'Drivers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

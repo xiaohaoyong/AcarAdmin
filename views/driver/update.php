@@ -5,7 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Driver */
 
-$this->title = '修改司机: ' . $model->driver;
+$userid=\Yii::$app->request->get('id',0);
+$Users=\app\models\Users::findOne($userid);
+$this->title = $Users->name;
 $this->params['breadcrumbs'][] = ['label' => 'Drivers', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->userid, 'url' => ['view', 'id' => $model->userid]];
 $this->params['breadcrumbs'][] = 'Update';
