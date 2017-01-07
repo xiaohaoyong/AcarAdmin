@@ -23,8 +23,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'idnum')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'idimg')->textInput(['maxlength' => true]) ?>
-
     <div class="field-order-addtime required" style="height: 44px">
         <label class="col-lg-3 control-label" for="order-addtime">创建时间</label>
         <?=date('Y-m-d H:i:s',$model->addtime)?>
@@ -46,6 +44,12 @@ use yii\widgets\ActiveForm;
     <div class="field-order-accessToken required" style="height: 44px">
         <label class="col-lg-3 control-label" for="order-accessToken">Access Token</label>
         <?=$model->accessToken?>
+        <div class="help-block"></div>
+    </div>
+
+    <div class="field-users-idimg required">
+        <label class="col-lg-3 control-label" for="users-idimg">驾驶证照片</label>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->idimg,true)?>' width='50%'>
         <div class="help-block"></div>
     </div>
 

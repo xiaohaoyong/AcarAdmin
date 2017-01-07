@@ -55,7 +55,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'starttime',
                 'format' => ['date', 'php:Y-m-d']
             ],
-             'licenseimg',
+            [
+                'attribute' => 'licenseimg',
+                'format' => 'raw',
+
+                'value' => function($data)
+                {
+                    return Html::img(ACAR_IMGURL.$data->licenseimg,['width' => 300]);
+                }
+            ]
         ],
     ]) ?>
 

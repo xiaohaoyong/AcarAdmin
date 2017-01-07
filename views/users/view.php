@@ -56,9 +56,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'idnum',
-            'idimg',
             'authKey',
             'accessToken',
+            [
+                'attribute' => 'idimg',
+                'format' => 'raw',
+
+                'value' => function($data)
+                {
+                    return Html::img(ACAR_IMGURL.$data->idimg,['width' => 300]);
+                }
+            ]
         ],
     ]) ?>
 
