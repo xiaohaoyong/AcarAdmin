@@ -7,7 +7,7 @@ $ACARSRVCONFIG = parse_ini_file(__DIR__.'/../system/XYWYSRV_CONFIG');
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-define('ACAR_IMGURL','http://img.acar.xuexiq.com/');
+define('ACAR_IMGURL','http://imgacar.xuexiq.com/');
 
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
