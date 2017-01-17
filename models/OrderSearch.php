@@ -12,6 +12,9 @@ use app\models\Order;
  */
 class OrderSearch extends Order
 {
+    public $start;//开始时间
+
+    public $end;//结束时间
     /**
      * @inheritdoc
      */
@@ -20,6 +23,7 @@ class OrderSearch extends Order
         return [
             [['id', 'userid', 'driverid', 'addtime', 'routeid', 'status', 'type', 'num', 'phone', 'bespeaktime', 'paytype', 'paystatus', 'trmb', 'prmb', 'paytime'], 'integer'],
             [['orderid', 'saddr', 'saddrname', 'slat', 'slng', 'eaddr', 'eaddrname', 'elat', 'elng', 'payid'], 'safe'],
+            [['start','end'], 'date', 'format'=>'php:Y-m-d'],
         ];
     }
 

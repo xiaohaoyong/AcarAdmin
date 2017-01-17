@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Driver;
+use app\models\Users;
 use Yii;
 use app\models\Order;
 use app\models\OrderSearch;
@@ -132,4 +134,61 @@ class OrderController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionDownload()
+    {
+        if(Yii::$app->request->queryParams) {
+            require(__DIR__ . '/../components/helper/excel/PHPExcel.php');
+            require(__DIR__ . '/../components/helper/excel/PHPExcel/Writer/Excel2007.php');
+
+            $objPHPExcel = new \PHPExcel();
+            $objPHPExcel->getActiveSheet()->setCellValue('A1','订单号' );
+            $objPHPExcel->getActiveSheet()->setCellValue('B1','乘客');
+            $objPHPExcel->getActiveSheet()->setCellValue('C1','司机');
+            $objPHPExcel->getActiveSheet()->setCellValue('D1','司机银行卡号');
+            $objPHPExcel->getActiveSheet()->setCellValue('E1','开户行');
+            $objPHPExcel->getActiveSheet()->setCellValue('F1','支付时间');
+            $objPHPExcel->getActiveSheet()->setCellValue('G1','支付金额');
+            $objPHPExcel->getActiveSheet()->setCellValue('H1','支付ID');
+
+            $model=new OrderSearch();
+            $list=$model->search(Yii::$app->request->queryParams);
+            $models = array_values($list->getModels());
+            $i=2;
+            foreach($models as $k=>$v)
+            {
+                $objPHPExcel->getActiveSheet()->setCellValue('A' . $i,$v->orderid);
+
+                $user=Users::findOne($v->userid);
+                $objPHPExcel->getActiveSheet()->setCellValue('B' . $i,$user->name);
+                $userdriver=Users::findOne($v->driverid);
+                $objPHPExcel->getActiveSheet()->setCellValue('C' . $i,$userdriver->name);
+
+                $driver=Driver::findOne(['userid'=>$v->driverid]);
+                $objPHPExcel->getActiveSheet()->setCellValue('D' . $i,$driver->Bnumber);
+                $objPHPExcel->getActiveSheet()->setCellValue('E' . $i,$driver->Baccount);
+                $objPHPExcel->getActiveSheet()->setCellValue('F' . $i,date('Y-m-d H:i:s',$v->paytime));
+                $objPHPExcel->getActiveSheet()->setCellValue('G' . $i,$v->prmb);
+                $objPHPExcel->getActiveSheet()->setCellValue('H' . $i,$v->payid);
+                $i++;
+            }
+            $objWriter = new \PHPExcel_Writer_Excel2007($objPHPExcel);
+            header("Pragma: public");
+            header("Expires: 0");
+            header("Cache-Control:must-revalidate, post-check=0, pre-check=0");
+            header("Content-Type:application/force-download");
+            header("Content-Type:application/vnd.ms-execl");
+            header("Content-Type:application/octet-stream");
+            header("Content-Type:application/download");;
+            header('Content-Disposition:attachment;filename="'.date('Y-m-d').'.xls"');
+            header("Content-Transfer-Encoding:binary");
+            $objWriter->save("php://output");
+        }
+        $searchModel = new OrderSearch();
+
+        return $this->render('download', [
+            'model' => $searchModel,
+        ]);
+    }
+
 }
