@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute'=>"userid",
+                'attribute'=>"userphone",
                 'value' => function($data)
                 {
                     $Users=\app\models\Users::findOne($data->userid);

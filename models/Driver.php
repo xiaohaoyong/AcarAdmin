@@ -55,6 +55,8 @@ class Driver extends \yii\db\ActiveRecord
     {
         return [
             'userid' => '司机',
+            'userphone' => '司机手机号',
+
             'city' => '所在城市',
             'plates' => '车牌号',
             'owner' => '车主姓名',
