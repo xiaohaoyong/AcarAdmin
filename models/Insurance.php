@@ -45,8 +45,10 @@ class Insurance extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['idimgz', 'idimgb', 'xsimgz', 'xsimga', 'xsimgb', 'bdimg', 'phone', 'userid'], 'required'],
-            [['phone', 'userid', 'level', 'offer'], 'integer'],
+            [['idimgz', 'idimgb', 'xsimgz', 'xsimga', 'xsimgb', 'bdimg', 'phone', 'userid', 'boli', 'issheshui'], 'required'],
+            [['starttime'],'date'],
+
+            [['phone', 'userid', 'level', 'offer', 'addtime', 'lossdanger', 'islossdanger', 'liability', 'isliability', 'dseat', 'isdseat', 'cseat', 'iscseat', 'daoqiang', 'isdaoqiang', 'huahen', 'ishuahen', 'boli', 'ziran', 'isziran', 'sheshui', 'issheshui', 'wufa', 'xiulichanga', 'xiulichangb'], 'integer'],
             [['idimgz', 'idimgb', 'xsimgz', 'xsimga', 'xsimgb', 'bdimg'], 'string', 'max' => 50],
             [['userid'], 'unique'],
         ];
@@ -67,8 +69,27 @@ class Insurance extends \yii\db\ActiveRecord
             'bdimg' => '保单',
             'phone' => '手机号',
             'userid' => 'Userid',
-            'level' => '状态',
+            'level' => 'Level',
             'offer' => 'Offer',
+            'addtime' => 'Addtime',
+            'starttime' => '商业险起保时间',
+            'lossdanger' => '车辆损失险',
+            'islossdanger' => '不计免赔',
+            'liability' => '第三者责任险',
+            'isliability' => '不计免赔',
+            'dseat' => '司机座位',
+            'isdseat' => '不计免赔',
+            'cseat' => '乘客座位',
+            'iscseat' => '不计免赔',
+            'daoqiang' => '全车盗抢险',
+            'isdaoqiang' => '不计免赔',
+            'huahen' => '划痕险',
+            'ishuahen' => '不计免赔',
+            'boli' => '玻璃单独破碎险',
+            'ziran' => '自然损失险',
+            'isziran' => '不计免赔',
+            'sheshui' => '涉水行驶损失险',
+            'issheshui' => '不计免赔',
         ];
     }
 }
