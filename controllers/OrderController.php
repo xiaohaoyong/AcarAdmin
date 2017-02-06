@@ -167,7 +167,7 @@ class OrderController extends Controller
                 $driver=Driver::findOne(['userid'=>$v->driverid]);
                 $objPHPExcel->getActiveSheet()->setCellValue('D' . $i,$driver->Bnumber);
                 $objPHPExcel->getActiveSheet()->setCellValue('E' . $i,$driver->Baccount);
-                $objPHPExcel->getActiveSheet()->setCellValue('F' . $i,date('Y-m-d H:i:s',$v->paytime));
+                $objPHPExcel->getActiveSheet()->setCellValue('F' . $i,$v->paytime?date('Y-m-d H:i:s',$v->paytime):"未支付");
                 $objPHPExcel->getActiveSheet()->setCellValue('G' . $i,$v->prmb);
                 $objPHPExcel->getActiveSheet()->setCellValue('H' . $i,$v->payid);
                 $i++;
