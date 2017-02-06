@@ -38,6 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'value' => function($data)
+                {
+                    $Users=\app\models\Users::findOne($data->userid);
+                    return $Users->phone;
+                }
+            ],
+            [
                 'attribute' => 'addtime',
                 'value' => function($data)
                 {
