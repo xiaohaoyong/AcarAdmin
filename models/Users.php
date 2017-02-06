@@ -42,6 +42,18 @@ class Users extends \yii\db\ActiveRecord
         return Yii::$app->get('dbacar');
     }
 
+    const SCENARIO_USER = 'user';
+    const SCENARIO_DRIVER = 'driver';
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios[self::SCENARIO_USER] = ['openid', 'name'];
+        $scenarios[self::SCENARIO_DRIVER] = ['openid', 'name', 'idimg'];
+        return $scenarios;
+    }
+
+
     /**
      * @inheritdoc
      */
@@ -49,7 +61,9 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             [['phone', 'type', 'addtime', 'level', 'sex'], 'integer'],
-            [['openid', 'name', 'idimg'], 'required'],
+            [['openid', 'name'], 'required','on'=>'user'],
+            [['openid', 'name', 'idimg'], 'required','on'=>'driver'],
+
             [['openid'], 'string', 'max' => 40],
             [['name'], 'string', 'max' => 10],
             [['idnum'], 'string', 'max' => 18],
