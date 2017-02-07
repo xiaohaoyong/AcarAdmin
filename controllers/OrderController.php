@@ -168,7 +168,7 @@ class OrderController extends Controller
                 $objPHPExcel->getActiveSheet()->setCellValue('D' . $i,$driver->Bnumber);
                 $objPHPExcel->getActiveSheet()->setCellValue('E' . $i,$driver->Baccount);
                 $objPHPExcel->getActiveSheet()->setCellValue('F' . $i,$v->paytime?date('Y-m-d H:i:s',$v->paytime):"未支付");
-                $objPHPExcel->getActiveSheet()->setCellValue('G' . $i,$v->prmb);
+                $objPHPExcel->getActiveSheet()->setCellValue('G' . $i,$v->prmb/100);
                 $objPHPExcel->getActiveSheet()->setCellValue('H' . $i," ".$v->payid);
                 $i++;
             }
