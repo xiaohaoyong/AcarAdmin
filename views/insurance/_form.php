@@ -72,7 +72,6 @@ use yii\widgets\ActiveForm;
         <label class="control-label" for="insurance-lossdanger">车辆损失险</label>
         <div style="float:right">
             <label><?=Html::activeCheckbox($model,'islossdanger',['value'=>1,'class'=>'icheck','uncheck'=>NULL])?></label>
-            <?=Html::activeCheckbox($model,'lossdanger',['value'=>1,'class'=>'switch','uncheck'=>NULL,'label'=>false])?>
         </div>
         <div class="help-block"></div>
     </div>
@@ -144,7 +143,6 @@ use yii\widgets\ActiveForm;
         <label class="control-label" for="insurance-daoqiang">全车盗抢险</label>
         <div style="float:right">
             <label><?=Html::activeCheckbox($model,'isdaoqiang',['value'=>1,'class'=>'icheck','uncheck'=>NULL])?></label>
-            <?=Html::activeCheckbox($model,'daoqiang',['value'=>1,'class'=>'switch','label'=>false,'uncheck'=>NULL])?>
         </div>
         <div class="help-block"></div>
     </div>
@@ -181,7 +179,6 @@ use yii\widgets\ActiveForm;
         <label class="control-label" for="insurance-ziran">自燃损失险</label>
         <div style="float:right">
             <label><?=Html::activeCheckbox($model,'isziran',['value'=>1,'class'=>'icheck','uncheck'=>NULL])?></label>
-            <?=Html::activeCheckbox($model,'ziran',['value'=>1,'class'=>'switch','label'=>false,'uncheck'=>NULL])?>
         </div>
         <div class="help-block"></div>
     </div>
@@ -191,16 +188,15 @@ use yii\widgets\ActiveForm;
         <label class="control-label" for="insurance-sheshui">涉水行驶损失险</label>
         <div style="float:right">
             <label><?=Html::activeCheckbox($model,'issheshui',['value'=>1,'class'=>'icheck','uncheck'=>NULL])?></label>
-            <?=Html::activeCheckbox($model,'sheshui',['value'=>1,'class'=>'switch','label'=>false,'uncheck'=>NULL])?>
         </div>
         <div class="help-block"></div>
     </div>
     
 
     <div class="field-insurance-wufa">
-        <label class="control-label" for="insurance-wufa">车损无法找到第三方险</label>
+        <label class="control-label" for="insurance-wufa">交强险</label>
         <div style="float:right">
-            <?=Html::activeCheckbox($model,'wufa',['value'=>1,'class'=>'switch','label'=>false,'uncheck'=>NULL])?>
+            <label><?=Html::activeCheckbox($model,'wufa',['value'=>1,'class'=>'icheck','uncheck'=>NULL])?></label>
         </div>
         <div class="help-block"></div>
     </div>

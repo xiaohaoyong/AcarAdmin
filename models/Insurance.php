@@ -90,6 +90,7 @@ class Insurance extends \yii\db\ActiveRecord
             'isziran' => '不计免赔',
             'sheshui' => '涉水行驶损失险',
             'issheshui' => '不计免赔',
+            'wufa' => "不计免赔"
         ];
     }
 }
