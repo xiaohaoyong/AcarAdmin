@@ -43,8 +43,8 @@ class Driver extends \yii\db\ActiveRecord
         return [
             [['userid', 'plates', 'owner'], 'required'],
             [['userid', 'city', 'cartime', 'starttime', 'addtime'], 'integer'],
-            [['plates', 'licenseimg'], 'string', 'max' => 20],
-            [['owner'], 'string', 'max' => 30],
+            [['plates'], 'string', 'max' => 20],
+            [['owner','licenseimg'], 'string', 'max' => 30],
         ];
     }
 
