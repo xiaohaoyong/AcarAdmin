@@ -68,6 +68,12 @@ class InsuranceController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            if($model->starttime)
+            {
+                $model->starttime=date('Y-m-d',$model->starttime);
+            }else{
+                $model->starttime=NULL;
+            }
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -93,6 +99,13 @@ class InsuranceController extends Controller
         if ($p && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            if($model->starttime)
+            {
+                $model->starttime=date('Y-m-d',$model->starttime);
+            }else{
+                $model->starttime=NULL;
+            }
+
             return $this->render('update', [
                 'model' => $model,
             ]);

@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-
+            'wenickname',
             'phone',
             'openid',
             [                      // the owner name of the model

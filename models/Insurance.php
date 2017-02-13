@@ -23,6 +23,54 @@ class Insurance extends \yii\db\ActiveRecord
 {
     public static $leveltext=[0=>'待报价',1=>'已报价'];
 
+    public static  $liability=[
+        "0"=>'不投保',
+        "50000"=>'5万',
+        "100000"=>'10万',
+        "150000"=>'15万',
+        "200000"=>'20万',
+        "300000"=>'30万',
+        "500000"=>'50万',
+        "1000000"=>'100万',
+        "1500000"=>'150万',
+        "2000000"=>'200万',
+        "2500000"=>'250万',
+        "3000000"=>'300万',
+        "5000000"=>'500万',
+    ];
+    public static $dseat=[
+        "0"=>'不投保',
+        "10000"=>'1万',
+        "20000"=>'2万',
+        "30000"=>'3万',
+        "40000"=>'4万',
+        "50000"=>'5万',
+        "100000"=>'10万',
+        "200000"=>'20万',
+        "250000"=>'25万',
+        "300000"=>'30万',
+    ];
+    public static   $huahen=[
+        "0"=>'不投保',
+        "2000"=>'2000',
+        "5000"=>'5000',
+        "10000"=>'1万',
+        "20000"=>'2万',
+    ];
+    public static $xiulichanga=[
+        "0"=>'上浮系数',
+        "10"=>'10',
+        "15"=>'15',
+        "20"=>'20',
+        "30"=>'30',
+        "40"=>'40',
+        "50"=>'50',
+        "60"=>'60',
+
+    ];
+    public static  $xiulichangb=[0=>"不投保",1=>'进口',2=>'国产'];
+    public static  $boli=[0=>"不投保",1=>'进口玻璃',2=>'国产玻璃'];
+
     /**
      * @inheritdoc
      */
@@ -68,10 +116,10 @@ class Insurance extends \yii\db\ActiveRecord
             'xsimgb' => '行驶证B面副本',
             'bdimg' => '保单',
             'phone' => '手机号',
-            'userid' => 'Userid',
-            'level' => 'Level',
-            'offer' => 'Offer',
-            'addtime' => 'Addtime',
+            'userid' => '用户',
+            'level' => '类型',
+            'offer' => '报价',
+            'addtime' => '添加时间',
             'starttime' => '商业险起保时间',
             'lossdanger' => '车辆损失险',
             'islossdanger' => '不计免赔',
@@ -90,7 +138,24 @@ class Insurance extends \yii\db\ActiveRecord
             'isziran' => '不计免赔',
             'sheshui' => '涉水行驶损失险',
             'issheshui' => '不计免赔',
-            'wufa' => "不计免赔"
+            'wufa' => "交强险",
+            'xiulichanga'=>"指定修理厂"
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if($this->getIsNewRecord())
+        {
+            $this->addtime=time();
+        }
+
+        if($this->starttime) {
+            $this->starttime = strtotime($this->starttime);
+        }else{
+            unset($this->starttime);
+        }
+
+        return parent::beforeSave($insert);
     }
 }

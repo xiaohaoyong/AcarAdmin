@@ -67,6 +67,7 @@ class Users extends \yii\db\ActiveRecord
             'id' => '主键',
             'phone' => '手机号',
             'openid' => '微信openid',
+            'wenickname' => '微信昵称',
             'type' => '用户类型',
             'addtime' => '添加时间',
             'level' => '用户状态',
