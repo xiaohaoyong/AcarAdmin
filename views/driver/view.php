@@ -63,6 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'starttime',
                 'format' => ['date', 'php:Y-m-d']
             ],
+            'Bnumber',
+            'Baccount',
             [
                 'attribute' => 'licenseimg',
                 'format' => 'raw',
@@ -71,7 +73,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 {
                     return Html::img(ACAR_IMGURL.$data->licenseimg,['width' => 300]);
                 }
-            ]
+            ],
+            [
+                'attribute' => 'licenseimgb',
+                'format' => 'raw',
+
+                'value' => function($data)
+                {
+                    return Html::img(ACAR_IMGURL.$data->licenseimgb,['width' => 300]);
+                }
+            ],
         ],
     ]) ?>
 

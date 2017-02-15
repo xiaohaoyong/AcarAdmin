@@ -28,9 +28,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'plates')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'owner')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'Bnumber')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'Baccount')->textInput(['maxlength' => true]) ?>
     <div class="field-order-cartime required" style="height: 44px">
-        <label class="col-lg-3 control-label" for="order-cartime">初次领取驾照日期</label>
+        <label class="col-lg-3 control-label" for="order-cartime">车辆注册时间</label>
         <?=date('Y-m-d H:i:s',$model->cartime)?>
         <div class="help-block"></div>
     </div>
@@ -46,6 +48,8 @@ use yii\widgets\ActiveForm;
         <?=date('Y-m-d H:i:s',$model->addtime)?>
         <div class="help-block"></div>
     </div>
+
+
 
     <div class="field-order-licenseimg required">
         <label class="col-lg-3 control-label" for="order-licenseimg">驾驶证照片</label>
