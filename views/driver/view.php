@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute' => 'addtime',
+                'attribute' => 'city',
                 'value' => function($data)
                 {
                     $route=\app\models\City::findOne($data->city);
