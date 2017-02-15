@@ -67,6 +67,8 @@ class Driver extends \yii\db\ActiveRecord
             'licenseimgb'=>'驾驶证副本',
             'Bnumber' => '银行卡号',
             'Baccount' => '开户行',
+            'idimg' => '身份证照片',
+            'idimgb' => '身份证背面',
         ];
     }
 }
