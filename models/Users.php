@@ -55,6 +55,7 @@ class Users extends \yii\db\ActiveRecord
             [['idnum'], 'string', 'max' => 18],
             [['idimg'], 'string', 'max' => 30],
             [['idimgb'], 'string', 'max' => 30],
+            [['idimga'], 'string', 'max' => 30],
             [['authKey', 'accessToken'], 'string', 'max' => 100],
         ];
     }
@@ -77,6 +78,8 @@ class Users extends \yii\db\ActiveRecord
             'idnum' => '身份证号',
             'idimg' => '身份证照片',
             'idimgb' => '身份证背面',
+            'idimga' => '手持身份证照片',
+
             'authKey' => 'Auth Key',
             'accessToken' => 'Access Token',
         ];

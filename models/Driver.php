@@ -44,7 +44,7 @@ class Driver extends \yii\db\ActiveRecord
             [['userid', 'plates', 'owner'], 'required'],
             [['userid', 'city', 'cartime', 'starttime', 'addtime'], 'integer'],
             [['plates'], 'string', 'max' => 20],
-            [['owner','licenseimg','licenseimgb'], 'string', 'max' => 30],
+            [['owner','licenseimg','licenseimgb','licenseimga'], 'string', 'max' => 30],
         ];
     }
 
@@ -65,10 +65,14 @@ class Driver extends \yii\db\ActiveRecord
             'addtime' => '注册时间',
             'licenseimg' => '驾驶证照片',
             'licenseimgb'=>'驾驶证副本',
+            'licenseimga'=>'人车合影',
+
             'Bnumber' => '银行卡号',
             'Baccount' => '开户行',
             'idimg' => '身份证照片',
             'idimgb' => '身份证背面',
+            'idimga' => '手持身份证照片',
+
         ];
     }
 }

@@ -84,6 +84,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
+                'attribute' => 'licenseimga',
+                'format' => 'raw',
+
+                'value' => function($data)
+                {
+                    return Html::img(ACAR_IMGURL.$data->licenseimga,['width' => 300]);
+                }
+            ],
+            [
                 'attribute' => 'idimg',
                 'format' => 'raw',
 
@@ -101,6 +110,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 {
                     $user=\app\models\Users::findOne($data->userid);
                     return Html::img(ACAR_IMGURL.$user->idimgb,['width' => 300]);
+                }
+            ],
+            [
+                'attribute' => 'idimga',
+                'format' => 'raw',
+
+                'value' => function($data)
+                {
+                    $user=\app\models\Users::findOne($data->userid);
+                    return Html::img(ACAR_IMGURL.$user->idimga,['width' => 300]);
                 }
             ],
         ],
