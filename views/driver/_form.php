@@ -49,8 +49,6 @@ use yii\widgets\ActiveForm;
         <div class="help-block"></div>
     </div>
 
-
-
     <div class="field-order-licenseimg required">
         <label class="col-lg-3 control-label" for="order-licenseimg">驾驶证照片</label>
         <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->licenseimg,true)?>' width='50%'>

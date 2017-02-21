@@ -59,9 +59,9 @@ class Route extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'price' => '单价（元）',
-            'bprice5' => '五座包车价格（元）',
-            'bprice7' => '七座包车价格（元）',
-            'bprice9' => '九座包车价格（元）',
+            'bprice5' => '四座包车价格（元）',
+            'bprice7' => '五座包车价格（元）',
+            'bprice9' => '六座包车价格（元）',
             'saddr' => '起始城市',
             'saddrname' => '起始城市详情',
             'slat' => '开始纬度',
