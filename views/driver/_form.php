@@ -56,7 +56,34 @@ use yii\widgets\ActiveForm;
         <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->licenseimg,true)?>' width='50%'>
         <div class="help-block"></div>
     </div>
-
+    <div class="field-order-licenseimgb required">
+        <label class="col-lg-3 control-label" for="order-licenseimgb">驾驶证副本</label>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->licenseimgb,true)?>' width='50%'>
+        <div class="help-block"></div>
+    </div>
+    <div class="field-order-licenseimga required">
+        <label class="col-lg-3 control-label" for="order-licenseimga">人车合影</label>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->licenseimga,true)?>' width='50%'>
+        <div class="help-block"></div>
+    </div>
+    <div class="field-order-idimg required">
+        <label class="col-lg-3 control-label" for="order-idimg">身份证照片</label>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$model->idimg,true)?>' width='50%'>
+        <div class="help-block"></div>
+    </div>
+    <div class="field-order-idimgb required">
+        <label class="col-lg-3 control-label" for="order-idimgb">身份证背面</label>
+        <?php
+        $user=\app\models\Users::findOne($model->userid);
+        ?>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$user->idimgb,true)?>' width='50%'>
+        <div class="help-block"></div>
+    </div>
+    <div class="field-order-idimga required">
+        <label class="col-lg-3 control-label" for="order-idimga">手持身份证照片</label>
+        <img src='<?=\yii\helpers\Url::to(ACAR_IMGURL.$user->idimga,true)?>' width='50%'>
+        <div class="help-block"></div>
+    </div>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '提交' : '提交', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
